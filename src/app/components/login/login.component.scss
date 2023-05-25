@@ -1,0 +1,106 @@
+@import '../../styles/variaveis';
+
+.ContainerLogin{
+    background: $background-padrao;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .BoxLogin{
+        background: $background-box;
+        width: 300px;
+        padding: 2rem 1rem;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 2px 2px 1px 1px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1{
+            font-size: 45px;
+            color: $fonte-padrao;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .Formulario{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 300px;
+            color: $fonte-padrao;
+
+            label{
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 0.7rem;
+
+                .Alerta{
+                    p{
+                        color: $fonte-alerta;
+                        font-size: 15px;
+                        margin-top: 2px;
+                    }
+                }
+
+                input{
+                    font-size: 20px;
+                    padding: 5px;
+                    width: 17rem;
+                    margin-top: 2px;
+                    outline: none;
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4);
+                }
+            }
+
+            .Botao{
+                cursor: pointer;
+                padding: 0.5rem;
+                font-size: 20px;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                margin-top: 1rem;
+                box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+
+                &:hover{
+                    background: #fff;
+                }
+
+
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px){
+    .ContainerLogin{
+        .BoxLogin{
+            width: 500px;
+
+            h1{
+                font-size: 60px;
+            }
+
+            .Formulario{
+                label{
+                    font-size: 28px;
+
+                    input{
+                        font-size: 28px;
+                        width: 26rem;
+                    }
+                }
+
+                .Botao{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}

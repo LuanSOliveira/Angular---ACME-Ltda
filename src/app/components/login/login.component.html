@@ -1,0 +1,22 @@
+<div class="ContainerLogin">
+    <div class="BoxLogin" data-aos="zoom-in">
+        <h1>ACME .Ltda</h1>
+        <form (ngSubmit)="Submeter($event)" class="Formulario" [formGroup]="loginForm" #formDir="ngForm">
+            <label>
+                Login:
+                <input type="text" placeholder="Informe o login do usuário" name="login" formControlName="login">
+                <div class="Alerta" *ngIf="loginForm.get('login')!.invalid && formDir.submitted">
+                    <p *ngIf="loginForm.get('login')!.errors?.['required']">*O Login é obrigatório</p>
+                </div>
+            </label>
+            <label>
+                Senha:
+                <input type="password" placeholder="Informe a senha do usuário" name="password" formControlName="pass">
+                <div class="Alerta" *ngIf="loginForm.get('pass')!.invalid && formDir.submitted">
+                    <p *ngIf="loginForm.get('pass')!.errors?.['required']">*A Senha é obrigatória</p>
+                </div>
+            </label>
+            <button class="Botao">Acessar</button>
+        </form>
+    </div>
+</div>

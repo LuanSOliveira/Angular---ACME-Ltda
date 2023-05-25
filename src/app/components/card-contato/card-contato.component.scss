@@ -1,0 +1,36 @@
+.CardPessoa{
+    background: #01745d;
+    padding: 1rem;
+    width: 14rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.4);
+    min-height: 305px;
+
+    &:hover{
+        box-shadow: 0px 0px 2px 2px rgba(228, 228, 228, 0.4);
+    }
+
+    .Pessoa{
+        text-align: center;
+        margin-bottom: 1.2rem;
+    }
+
+    .ListaInformacoes{
+        list-style: none;
+
+        .Informacao{
+            margin: 10px 0;
+        }
+    }
+}
+
+@media (min-width: 1366px){
+    .CardPessoa{
+        .ListaInformacoes{
+            .Informacao{
+                font-size: 18px;
+            }
+        }
+    }
+}

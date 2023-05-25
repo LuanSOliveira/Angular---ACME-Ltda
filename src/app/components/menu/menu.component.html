@@ -1,0 +1,37 @@
+<div class="ContainerMenu">
+    <div class="SubContainer">
+        <div class="BoxLabel" data-aos="fade-down">
+            <div class="Titulo">
+                <h2>Bem Vindo(a)</h2>
+                <button (click)="Sair()">Sair</button>
+            </div>
+            <p>Abaixo você pode verificar a lista de contatos cadastrados.</p>
+        </div>
+        <div class="BoxMenu" data-aos="fade-down">
+            <h2>Lista de contatos:</h2>
+            <input type="text" placeholder="Filtrar contato por Nome" class="Filtro" [(ngModel)]="filtro" name="filtro">
+            <ul class="ListaContatos">
+                <li class="Contato" *ngFor="let pessoa of pessoas">
+                    <div *ngIf="filtro === ''">
+                        <app-card-contato 
+                            [nome]="pessoa.nome"
+                            [cpf]="pessoa.cpf"
+                            [telefone]="pessoa.telefone"
+                            [logradouro]="pessoa.logradouro"
+                            [cep]="pessoa.CEP"
+                        ></app-card-contato>
+                    </div>
+                    <div *ngIf="pessoa.nome.toUpperCase().includes(filtro.toUpperCase()) && filtro !== ''">
+                        <app-card-contato 
+                            [nome]="pessoa.nome"
+                            [cpf]="pessoa.cpf"
+                            [telefone]="pessoa.telefone"
+                            [logradouro]="pessoa.logradouro"
+                            [cep]="pessoa.CEP"
+                        ></app-card-contato>
+                    </div>
+                </li>
+            </ul>    
+        </div>
+    </div>
+</div>
