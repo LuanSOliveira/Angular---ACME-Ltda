@@ -2,6 +2,7 @@ export interface IUser{
     id: number,
     name: string,
     pass: string,
+    token: string,
 }
 
 export interface IPessoa{

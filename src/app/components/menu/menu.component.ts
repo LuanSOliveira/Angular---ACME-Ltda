@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPessoa } from 'src/app/interfaces/Interfaces';
-import { AccessService } from 'src/app/services/access.service';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -15,12 +14,13 @@ export class MenuComponent implements OnInit {
   filtro: string = ''
   filterPerson: IPessoa[] = []
 
-  constructor(private router: Router, private menuService: MenuService, private accessService: AccessService){
+  constructor(private router: Router, private menuService: MenuService){
     this.getPessoa()
   }
 
   ngOnInit(): void {
-    if(!this.accessService.logado){
+    const token = localStorage.getItem('token')
+    if(!token){
       this.navigateToRouter('')
     }
   }
@@ -30,8 +30,8 @@ export class MenuComponent implements OnInit {
   }
 
   Sair():void{
+    localStorage.removeItem('token')
     this.navigateToRouter('')
-    this.accessService.DesativaAccess()
   }
   
   getPessoa():void{
