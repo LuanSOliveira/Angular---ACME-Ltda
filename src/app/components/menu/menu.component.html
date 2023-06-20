@@ -9,27 +9,16 @@
         </div>
         <div class="BoxMenu" data-aos="fade-down">
             <h2>Lista de contatos:</h2>
-            <input type="text" placeholder="Filtrar contato por Nome" class="Filtro" [(ngModel)]="filtro" name="filtro">
+            <input type="text" placeholder="Filtrar contato por Nome" class="Filtro" [(ngModel)]="filtro" name="filtro" (input)="filterByPerson()">
             <ul class="ListaContatos">
-                <li class="Contato" *ngFor="let pessoa of pessoas">
-                    <div *ngIf="filtro === ''">
-                        <app-card-contato 
-                            [nome]="pessoa.nome"
-                            [cpf]="pessoa.cpf"
-                            [telefone]="pessoa.telefone"
-                            [logradouro]="pessoa.logradouro"
-                            [cep]="pessoa.CEP"
-                        ></app-card-contato>
-                    </div>
-                    <div *ngIf="pessoa.nome.toUpperCase().includes(filtro.toUpperCase()) && filtro !== ''">
-                        <app-card-contato 
-                            [nome]="pessoa.nome"
-                            [cpf]="pessoa.cpf"
-                            [telefone]="pessoa.telefone"
-                            [logradouro]="pessoa.logradouro"
-                            [cep]="pessoa.CEP"
-                        ></app-card-contato>
-                    </div>
+                <li class="Contato" *ngFor="let pessoa of filterPerson">
+                    <app-card-contato 
+                        [nome]="pessoa.nome"
+                        [cpf]="pessoa.cpf"
+                        [telefone]="pessoa.telefone"
+                        [logradouro]="pessoa.logradouro"
+                        [cep]="pessoa.CEP"
+                    ></app-card-contato>
                 </li>
             </ul>    
         </div>

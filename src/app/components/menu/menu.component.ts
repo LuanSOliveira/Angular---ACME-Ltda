@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 
   pessoas: IPessoa[] = []
   filtro: string = ''
+  filterPerson: IPessoa[] = []
 
   constructor(private router: Router, private menuService: MenuService, private accessService: AccessService){
     this.getPessoa()
@@ -34,7 +35,11 @@ export class MenuComponent implements OnInit {
   }
   
   getPessoa():void{
-    this.menuService.getAll().subscribe((pessoa) => (this.pessoas = pessoa))
+    this.menuService.getAll().subscribe((pessoa) => {this.pessoas = pessoa, this.filterPerson = pessoa})
   }
 
+  filterByPerson():void{
+    let people = [...this.pessoas]
+    this.filterPerson = people.filter(person => person.nome.toUpperCase().includes(this.filtro.toUpperCase()))
+  }
 }
